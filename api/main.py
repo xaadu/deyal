@@ -5,7 +5,7 @@ from helpers import (
     getIP
 )
 
-APP_VERSION = '0.1.0'
+APP_VERSION = '1'
 
 ROOT_PATH=f'/deyal/v{APP_VERSION}'
 
