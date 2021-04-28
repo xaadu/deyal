@@ -1,9 +1,12 @@
 FROM node:alpine
 
 RUN mkdir /code
-COPY ./build /code
+COPY . /code
 WORKDIR /code
 
+RUN npm install
 RUN npm install -g serve
 
-CMD ["serve", "-l", "tcp://0.0.0.0:9001"]
+RUN npm run build
+
+CMD ["serve", "-s", "build", "-l", "tcp://0.0.0.0:9001"]

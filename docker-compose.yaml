@@ -10,10 +10,11 @@ services:
         env_file:
             - ./api/.env
     frontend:
-        build: ./frontend
+        build: 
+            context: ./frontend
+            args: 
+                - NODE_ENV=${NODE_ENV}
         ports:
             - 9001:9001
         volumes:
-            - ./frontend/build:/code
-        env_file: 
-            - ./frontend/.env
+            - ./frontend:/code

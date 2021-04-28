@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/projects/deyal/static/css/main.75072ffe.chunk.css",
+    "main.css": "/projects/deyal/static/css/main.2bb096b9.chunk.css",
     "main.js": "/projects/deyal/static/js/main.6b0ad340.chunk.js",
     "main.js.map": "/projects/deyal/static/js/main.6b0ad340.chunk.js.map",
     "runtime-main.js": "/projects/deyal/static/js/runtime-main.b8064327.js",
@@ -10,13 +10,13 @@
     "static/js/3.0f2d682f.chunk.js": "/projects/deyal/static/js/3.0f2d682f.chunk.js",
     "static/js/3.0f2d682f.chunk.js.map": "/projects/deyal/static/js/3.0f2d682f.chunk.js.map",
     "index.html": "/projects/deyal/index.html",
-    "static/css/main.75072ffe.chunk.css.map": "/projects/deyal/static/css/main.75072ffe.chunk.css.map",
+    "static/css/main.2bb096b9.chunk.css.map": "/projects/deyal/static/css/main.2bb096b9.chunk.css.map",
     "static/js/2.8f4bd654.chunk.js.LICENSE.txt": "/projects/deyal/static/js/2.8f4bd654.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b8064327.js",
     "static/js/2.8f4bd654.chunk.js",
-    "static/css/main.75072ffe.chunk.css",
+    "static/css/main.2bb096b9.chunk.css",
     "static/js/main.6b0ad340.chunk.js"
   ]
 }
