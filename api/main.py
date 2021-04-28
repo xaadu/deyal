@@ -27,4 +27,4 @@ app.add_middleware(
 @app.get('/')
 async def home(request: Request):
     client_ip = getIP(request)
-    return {"Hello": "World", 'ip': client_ip}
+    return {'ip': client_ip}
