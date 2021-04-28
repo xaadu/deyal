@@ -1,5 +1,13 @@
+import os
+
 from fastapi import Request
 
+DEBUG=os.environ.get('DEBUG', 'TRUE') == 'TRUE'
+if DEBUG:
+    import dotenv
+    dotenv.load_dotenv()
+
+# HELPER FUNCTIONS
 def getIP(request: Request):
     client_ip = request.headers.get('cf-connecting-ipp', None)
     if client_ip == None:
