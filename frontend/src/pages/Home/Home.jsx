@@ -1,10 +1,10 @@
 import Posts from '../../components/Posts/Posts'
-import './Home.module.scss'
+import style from './Home.module.scss'
 
 const Home = () => {
     return (
         <div className='py-5'>
-            <h2>দেয়াল</h2>
+            <h2 className={style.h2}>দেয়াল</h2>
             <Posts />
         </div>
     )

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Post from './Post/Post'
-import './Posts.module.scss'
+import style from './Posts.module.scss'
 
 const Posts = () => {
     const [pageNo, setPageNo] = useState(1)

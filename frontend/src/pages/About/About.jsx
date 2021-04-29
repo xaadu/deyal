@@ -1,9 +1,9 @@
-import './About.module.scss'
+import style from './About.module.scss'
 
 const About = () => {
     return (
         <div className='py-5'>
-            <h2>About</h2>
+            <h2 className={style.h2}>About</h2>
         </div>
     )
 }
