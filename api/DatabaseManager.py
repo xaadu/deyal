@@ -64,7 +64,7 @@ class DatabaseManager:
 
     def get_posts(self, limit: int = 0, start: int = 0) -> dict:
         try:
-            posts = list(self.posts.find(skip=start, limit=limit))
+            posts = list(self.posts.find(skip=start, limit=limit).sort('_id', pymongo.DESCENDING))
 
             for post in posts:
                 post['_id'] = post['_id'].__str__()
@@ -151,25 +151,25 @@ def test_db():
     dm = DatabaseManager()
 
     #count = dm.post_count()
-    #print(count)
-    #print('='*10)
+    # print(count)
+    # print('='*10)
 
     #posts = dm.get_posts(3, 2)
-    #print(posts)
-    #print('='*10)
+    # print(posts)
+    # print('='*10)
 
     #test_id = posts['data'][-1]['_id']
     #test_id = '608a7dcbf956f9acb2e7879'
     #post = dm.get_post(test_id)
-    #print(post)
-    #print('='*10)
+    # print(post)
+    # print('='*10)
 
     #post = dm.create_post({'title': 'Test Post 6'})
-    #print(post)
-    #print('='*10)
+    # print(post)
+    # print('='*10)
 
     #post = dm.remove_post('608a7dcbf956f9acb2e78795')
-    #print(post)
-    #print('='*10)
+    # print(post)
+    # print('='*10)
 
-#test_db()
+# test_db()
