@@ -68,7 +68,7 @@ class DatabaseManager:
             for post in posts:
                 post['_id'] = post['_id'].__str__()
 
-            total_post = self.post_count()
+            total_post = self.num_of_post
 
             metadata = {
                 'total_post': total_post,
@@ -100,6 +100,7 @@ class DatabaseManager:
                     'status': 'success',
                     'data': data
                 }
+                self.num_of_post+=1
             else:
                 data = {
                     'status': 'failed',
@@ -123,6 +124,7 @@ class DatabaseManager:
                             'status': 'success',
                             'data': {}
                         }
+                        self.num_of_post-=1
                     else:
                         data = {
                             'status': 'failed',
