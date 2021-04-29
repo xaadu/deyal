@@ -22,7 +22,7 @@ const Posts = () => {
             console.log(e)
         })
 
-    }, [])
+    }, [pageNo])
 
     return (
         <div className="container py-5">
