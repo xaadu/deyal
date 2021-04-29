@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom"
+import './About.module.scss'
 
 const About = () => {
     return (
-        <div>
+        <div className='py-5'>
             <h2>About</h2>
-            <Link to='/'> Go Home </Link>
         </div>
     )
 }

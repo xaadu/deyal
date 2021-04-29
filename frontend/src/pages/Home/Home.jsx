@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom'
-import styles from './Home.module.scss'
+import './Home.module.scss'
 
 const Home = () => {
     return (
-        <div>
-            <h2 style={styles.h2}>দেয়াল</h2>
-            <Link to='/about'>About</Link>
+        <div className='py-5'>
+            <h2>দেয়াল</h2>
         </div>
     )
 }
