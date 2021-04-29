@@ -1,6 +1,9 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
+from typing import Optional
+from pydantic import BaseModel
+
 from helpers import (
     getIP
 )
@@ -29,6 +32,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Data Model
+
+
+class Post(BaseModel):
+    title: str
+    short_desc: str
+    description: str
+
+
 # Create DatabaseManager Object
 dm = DatabaseManager()
 
@@ -41,8 +53,14 @@ async def home(request: Request):
 
 @app.get('/posts')
 async def posts(request: Request, page: int = 1):
-    if page<1:
-        page=1
+    if page < 1:
+        page = 1
     start = (page-1) * NUM_OF_DATA_PER_PAGE
     data = dm.get_posts(NUM_OF_DATA_PER_PAGE, start)
+    return data
+
+
+@app.post('/posts')
+async def create_post(request: Request, post: Post):
+    data = dm.create_post(dict(post))
     return data

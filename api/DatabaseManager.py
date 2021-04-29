@@ -60,11 +60,10 @@ class DatabaseManager:
             }
         return data
 
-        
-
     def get_posts(self, limit: int = 0, start: int = 0) -> dict:
         try:
-            posts = list(self.posts.find(skip=start, limit=limit).sort('_id', pymongo.DESCENDING))
+            posts = list(self.posts.find(skip=start, limit=limit).sort(
+                '_id', pymongo.DESCENDING))
 
             for post in posts:
                 post['_id'] = post['_id'].__str__()
