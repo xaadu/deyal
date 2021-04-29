@@ -4,7 +4,7 @@ import Post from './Post/Post'
 import './Posts.module.scss'
 
 const Posts = () => {
-    const [pageNo, setPageNo] = useState(2)
+    const [pageNo, setPageNo] = useState(1)
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
@@ -26,7 +26,16 @@ const Posts = () => {
 
     return (
         <div className="container py-5">
-            {posts.map(post => <Post key={post['_id']} name={post.title} short_desc={post.short_desc} />)}
+            <div className="btn-group">
+                <button className="btn btn-outline-primary" onClick={e => setPageNo(pageNo - 1)}>
+                    Previous
+                </button>
+                <button className="btn btn-outline-primary" onClick={e => setPageNo(pageNo + 1)}>
+                    Next
+                </button>
+            </div>
+
+            {posts.map(post => <Post key={post['_id']} name={post.name} short_desc={post.short_desc} />)}
         </div>
     )
 }
