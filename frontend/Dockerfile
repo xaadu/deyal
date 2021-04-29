@@ -9,4 +9,4 @@ RUN npm install -g serve
 
 RUN npm run build
 
-CMD ["serve", "-s", "build", "-l", "tcp://0.0.0.0:9001"]
+CMD ["serve", "-s", "build", "-l", "tcp://0.0.0.0:9002"]
