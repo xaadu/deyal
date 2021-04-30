@@ -27,7 +27,6 @@ const Posts = () => {
     useEffect(() => {
         setLoading(true)
         setError(false)
-        
         axios.get(
             `https://api.xstechisland.tk/deyal/v1/posts?page=${pageNo}`, {
             params: {
