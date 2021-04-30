@@ -13,7 +13,7 @@ const Header = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul className="navbar-nav mx-auto">
+                        <ul className="navbar-nav ms-auto">
                             <li className="nav-item px-4">
                                 <NavLink
                                     className="nav-link"
@@ -37,9 +37,6 @@ const Header = () => {
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div className="right">
-                    <button className="btn btn-primary px-3">লিখুন</button>
                 </div>
             </div>
         </nav>

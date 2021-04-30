@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect, useRef, useCallback } from 'react'
+import PostCreate from '../PostCreate/PostCreate'
 import Loading from './Loading/Loading'
 import Post from './Post/Post'
 import style from './Posts.module.scss'
@@ -34,21 +35,29 @@ const Posts = () => {
             }
         }
         ).then(res => {
-            const newPosts = res.data.data
-            setPosts(oldPosts => [...oldPosts, ...newPosts])
+            let newPosts = res.data.data
+            setPosts(oldPosts => {
+                if (newPosts.length>0 &&
+                    oldPosts.length>0 &&
+                    oldPosts[oldPosts.length-1]['_id'] === newPosts[0]['_id'])
+                    newPosts = newPosts.slice(1)
+                return [...oldPosts, ...newPosts]
+            })
             const metadata = res.data.metadata
-            console.log(metadata)
             setHasMore(metadata.post_returned + metadata.started_from < metadata.total_post)
             setLoading(false)
         }).catch(e => {
+            console.log(e)
             setError(true)
         })
 
     }, [pageNo])
 
     return (
-        <div className="container py-5">
+        <div className="py-5">
+            <PostCreate setPosts={setPosts} />
             {posts.map((post, i) => {
+                //console.log(post)
                 if (posts.length === i+1)
                     return <Post ref={lastPostObserverRef} 
                                 key={post['_id']} 
