@@ -33,8 +33,7 @@ const Modal = ({ setPosts }) => {
                 short_desc: short_desc
             }
         }).then(res => {
-            console.log(res.data)
-            setPosts(oldPosts => [res.data.data, ...oldPosts])
+            setPosts(oldPosts => [res.data.data, ...oldPosts.slice(0, -1)])
             cancel.current.click()
             setName('')
             setPost('')

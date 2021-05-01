@@ -37,10 +37,6 @@ const Posts = () => {
         ).then(res => {
             let newPosts = res.data.data
             setPosts(oldPosts => {
-                if (newPosts.length>0 &&
-                    oldPosts.length>0 &&
-                    oldPosts[oldPosts.length-1]['_id'] === newPosts[0]['_id'])
-                    newPosts = newPosts.slice(1)
                 return [...oldPosts, ...newPosts]
             })
             const metadata = res.data.metadata
