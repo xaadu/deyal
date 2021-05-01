@@ -52,11 +52,14 @@ async def home(request: Request):
 
 
 @app.get('/posts')
-async def posts(request: Request, page: int = 1):
+async def posts(request: Request, page: Optional[int] = 1, start: Optional[int] = None):
     if page < 1:
         page = 1
-    start = (page-1) * NUM_OF_DATA_PER_PAGE
-    data = dm.get_posts(NUM_OF_DATA_PER_PAGE, start)
+    if start is None:
+        start = (page-1) * NUM_OF_DATA_PER_PAGE
+        data = dm.get_posts(NUM_OF_DATA_PER_PAGE, start)
+    else:
+        data = dm.get_posts(page*NUM_OF_DATA_PER_PAGE, start)
     return data
 
 
