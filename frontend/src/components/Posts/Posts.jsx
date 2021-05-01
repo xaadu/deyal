@@ -60,7 +60,7 @@ const Posts = () => {
                                 name={post.title} 
                                 short_desc={post.short_desc}
                             />
-                return <Post key={post['_id']} name={post.title} short_desc={post.short_desc}/>
+                return <Post key={post['_id']} name={post.name} short_desc={post.short_desc}/>
             })}
             { loading && <Loading /> }
             { error && 'Error Loading Data' }

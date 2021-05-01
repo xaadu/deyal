@@ -5,7 +5,7 @@ const Post = ({ name, short_desc }, ref) => {
     return (
         <div className='my-5' ref={ref}>
             <div className={`card ${style.card}`}>
-                <h2>{name}</h2>
+                <h2>{ name === '' ? 'Anonymous' : name }</h2>
                 <p>{short_desc}</p>
             </div>
         </div>
