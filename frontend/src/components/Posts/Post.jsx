@@ -11,7 +11,7 @@ const Post = ({ name, description }, ref) => {
     }
 
     useEffect(() => {
-        if (description.length > 400)
+        if (description && description.length > 400)
             setHasMore(true)
     }, [description])
 
