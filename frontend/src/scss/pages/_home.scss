@@ -1,19 +1,1 @@
-.App {
-    min-height: 100vh;
-    background-image: url(../../assets/images/creeper1.png), 
-                        url(../../assets/images/bg3.jpg);
-    background-size: 30%, cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: top left, center center;
 
-    @media only screen and (max-width: 992px) {
-        background-size: 60%, cover;
-    }
-    @media only screen and (max-width: 768px) {
-        background-size: 80%, cover;
-    }
-    @media only screen and (max-width: 576px) {
-        background-size: 100%, cover;
-    }
-}
