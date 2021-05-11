@@ -14,15 +14,7 @@ const Modal = ({ setPosts }) => {
     const handleForm = e => {
         e.preventDefault()
 
-        let description, short_desc
-
-        if (post.length > 100) {
-            description = post
-            short_desc = post.slice(0, 50) + '...'
-        } else {
-            short_desc = post
-            description = ''
-        }
+        let description = post
 
         axios({
             method: 'POST',
@@ -30,7 +22,6 @@ const Modal = ({ setPosts }) => {
             data: {
                 name: name,
                 description: description,
-                short_desc: short_desc
             }
         }).then(res => {
             setPosts(oldPosts => [res.data.data, ...oldPosts.slice(0, -1)])
@@ -65,7 +56,7 @@ const Modal = ({ setPosts }) => {
                                 <textarea className={`form-control ${styles.textarea}`} id="post"
                                     value={post}
                                     onChange={e => setPost(e.target.value)}
-                                    onKeyDown={_=> null} />
+                                    onKeyDown={_ => null} />
                             </div>
                         </div>
                         <div className="modal-footer d-flex justify-content-center border-0">

@@ -16,10 +16,10 @@ const Posts = () => {
 
     const lastPostObserverRef = useCallback(node => {
         if (loading) return
-        if(observer.current) observer.current.disconnect()
+        if (observer.current) observer.current.disconnect()
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting && hasMore) {
-                setPageNo(prevPageNo => prevPageNo+1)
+                setPageNo(prevPageNo => prevPageNo + 1)
             }
         })
         if (node) observer.current.observe(node)
@@ -54,16 +54,16 @@ const Posts = () => {
             <PostCreate setPosts={setPosts} />
             {posts.map((post, i) => {
                 //console.log(post)
-                if (posts.length === i+1)
-                    return <Post ref={lastPostObserverRef} 
-                                key={post['_id']} 
-                                name={post.title} 
-                                short_desc={post.short_desc}
-                            />
-                return <Post key={post['_id']} name={post.name} short_desc={post.short_desc}/>
+                if (posts.length === i + 1)
+                    return <Post ref={lastPostObserverRef}
+                        key={post['_id']}
+                        name={post.title}
+                        description={post.description}
+                    />
+                return <Post key={post['_id']} name={post.name} description={post.description} />
             })}
-            { loading && <Loading /> }
-            { error && 'Error Loading Data' }
+            { loading && <Loading />}
+            { error && 'Error Loading Data'}
         </div>
     )
 }
