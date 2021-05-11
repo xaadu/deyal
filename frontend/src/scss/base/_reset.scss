@@ -7,3 +7,11 @@
 a:link {
     text-decoration: none;
 }
+button:focus,
+button.navbar-toggler:focus,
+button:active,
+.btn:focus {
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
