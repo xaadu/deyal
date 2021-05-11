@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useState, useRef } from 'react'
 
-import styles from './Modal.module.scss'
 
 const Modal = ({ setPosts }) => {
 
@@ -43,17 +42,17 @@ const Modal = ({ setPosts }) => {
                         </button>
                     </div>
                     <form onSubmit={handleForm}>
-                        <div className={`modal-body ${styles.modalBody}`}>
+                        <div className="modal-body">
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">ছদ্মনাম (বাধ্যতামূলক নয়)</label>
-                                <input type="text" className={`form-control ${styles.input}`} id="name"
+                                <input type="text" className="form-control" id="name"
                                     value={name} onChange={e => setName(e.target.value)} />
                             </div>
                             <div>
                                 <label htmlFor="post" className="form-label">
                                     মন খুলে লিখুন
                                     </label>
-                                <textarea className={`form-control ${styles.textarea}`} id="post"
+                                <textarea className="form-control" id="post"
                                     value={post}
                                     onChange={e => setPost(e.target.value)}
                                     onKeyDown={_ => null} />

@@ -1,16 +1,50 @@
-button.navbar-toggler:focus,
+button.navbar-toggler:focus{
+    border: none;
+    padding: 0;
+    margin: 0;
+}
 .btn,
 .btn:focus,
 .btn:active {
     box-shadow: none;
     outline: none;
-    border: none;
-    padding: 0;
-    margin: 0;
 }
 
 .btn.btn-expand {
     color: $color-primary;
+    border: none;
+    padding: 0;
+    margin: 0;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba($color: $color-primary, $alpha: .1);
+}
+
+.btn.btn-write {
+
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    z-index: 1;
+
+    background: rgba($color: $color-white, $alpha: .6);
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+
+    border: 1px solid $color-primary;
+
+    box-shadow: 2px 2px 20px rgba($color: $color-primary, $alpha: .3);
+    transition: all .2s ease-in-out;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    i {
+        padding-right: .25rem;
+        color: $color-primary;
+    }
+
+    &:hover {
+        transform: translateY(-5%);
+        box-shadow: 2px 2px 20px rgba($color: $color-primary, $alpha: .4);
+    }
 }

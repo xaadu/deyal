@@ -49,7 +49,7 @@ const Posts = () => {
     }, [pageNo])
 
     return (
-        <div className="">
+        <div className="posts">
             <PostCreate setPosts={setPosts} />
             {posts.map((post, i) => {
                 //console.log(post)
