@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Header from './components/Header/Header';
-import About from './pages/About/About';
-import Home from './pages/Home/Home'
-import Rules from './pages/Rules/Rules';
+import Header from './components/Header';
+import About from './pages/About';
+import Home from './pages/Home'
+import Rules from './pages/Rules';
 
 const base_name = process.env.REACT_APP_BASENAME || '/'
 
