@@ -59,12 +59,12 @@ const Modal = ({ setPosts }) => {
                             </div>
                         </div>
                         <div className="modal-footer d-flex justify-content-center border-0">
-                            <button type="submit" className="btn btn-outline-primary">
-                                Submit
+                            <button type="submit" className="btn btn-outline-primary mx-2">
+                                পোস্ট করুন
                             </button>
-                            <button type="button" className="btn btn-outline-danger" data-bs-dismiss="modal"
+                            <button type="button" className="btn btn-outline-danger mx-2" data-bs-dismiss="modal"
                                 ref={cancel}>
-                                Cancel
+                                বাতিল করুন
                         </button>
                         </div>
                     </form>

@@ -48,3 +48,17 @@ button.navbar-toggler:focus{
         box-shadow: 2px 2px 20px rgba($color: $color-primary, $alpha: .4);
     }
 }
+
+.btn.btn-outline-primary {
+    color: $color-primary;
+    border-color: $color-primary;
+
+    &:hover {
+        color: $color-white;
+        background: $color-primary;
+        box-shadow: 0 0 10px rgba($color: $color-primary, $alpha: .5);
+    }
+}
+.btn.btn-outline-danger:hover {
+    box-shadow: 0 0 10px rgba($color: $color-danger, $alpha: .5);
+}
