@@ -1,0 +1,40 @@
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 20px rgba($color: $color-black, $alpha: .3);
+    max-width: 34rem;
+    background: rgba($color: $color-white, $alpha: .4);
+    backdrop-filter: blur(2px);
+
+    @media only screen and (max-width: 576px) {
+        background: rgba($color: $color-white, $alpha: .5);
+        backdrop-filter: blur(3px);
+    }
+
+    &__info {
+        background: rgba($color: $color-white, $alpha: .3);
+        backdrop-filter: blur(2px);
+
+        @media only screen and (max-width: 576px) {
+            background: rgba($color: $color-white, $alpha: .4);
+            backdrop-filter: blur(3px);
+        }
+
+        .left i {
+            font-size: 3rem;
+        }
+        .right {
+            .name h2 {
+                font-size: 1.6rem;
+                font-size: clamp(1.2rem, 10vw, 2rem);
+            }
+            .datetime h4 {
+                font-size: .8rem;
+                font-size: clamp(.6rem, 10vw, .9rem);
+            }
+        }
+    }
+    &__details {
+        color: $color-grey-dark;
+    }
+}

@@ -7,14 +7,6 @@
 a:link {
     text-decoration: none;
 }
-button:focus,
-button.navbar-toggler:focus,
-button:active,
-.btn:focus {
-    box-shadow: none;
-    outline: none;
-    border: none;
-}
 
 .App {
     min-height: 100vh;
@@ -26,12 +18,12 @@ button:active,
     background-position: top left, center center;
 
     @media only screen and (max-width: 992px) {
-        background-size: 60%, cover;
+        background-size: 50%, cover;
     }
     @media only screen and (max-width: 768px) {
-        background-size: 80%, cover;
+        background-size: 60%, cover;
     }
     @media only screen and (max-width: 576px) {
-        background-size: 100%, cover;
+        background-size: 70%, cover;
     }
 }

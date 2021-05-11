@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Galada&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Galada&family=Poppins:wght@400;600;700&display=swap');
 
 h2.section-heading,
 h4.section-sub-heading {
@@ -9,7 +9,7 @@ h2.section-heading {
     font-family: 'Poppin', sans-serif;
 
     font-size: 3rem;
-    font-size: clamp(3rem, 10vw, 5rem);
+    font-size: clamp(3rem, 10vw, 6rem);
 }
 h4.section-sub-heading {
     font-size: 1rem;
@@ -19,4 +19,8 @@ h4.section-sub-heading {
 h2.lang-ban,
 h4.lang-ban {
     font-family: 'Galada', cursive;
+}
+div, p {
+    color: $color-grey-dark;
+    line-height: 1.6rem;
 }

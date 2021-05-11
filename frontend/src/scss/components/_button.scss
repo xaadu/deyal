@@ -1,0 +1,16 @@
+button.navbar-toggler:focus,
+.btn,
+.btn:focus,
+.btn:active {
+    box-shadow: none;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.btn.btn-expand {
+    color: $color-primary;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba($color: $color-primary, $alpha: .1);
+}

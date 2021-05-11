@@ -1,9 +1,8 @@
 import axios from 'axios'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import PostCreate from '../PostCreate/PostCreate'
-import Loading from './Loading/Loading'
-import Post from './Post/Post'
-import style from './Posts.module.scss'
+import Loading from './Loading'
+import Post from './Post'
 
 const Posts = () => {
     const [pageNo, setPageNo] = useState(1)
@@ -50,7 +49,7 @@ const Posts = () => {
     }, [pageNo])
 
     return (
-        <div className="py-5">
+        <div className="">
             <PostCreate setPosts={setPosts} />
             {posts.map((post, i) => {
                 //console.log(post)

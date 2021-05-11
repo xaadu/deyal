@@ -1,1 +1,9 @@
-
+.home {
+    .heading {
+        @media only screen and (max-width: 576px) {
+            background: rgba($color: $color-white, $alpha: .2);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+        }
+    }
+}

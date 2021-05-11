@@ -1,10 +1,8 @@
 import ContentLoader from 'react-content-loader'
-import { Code } from 'react-content-loader'
-import styles from './Loading.module.scss'
 
 const Loading = () => {
     return (
-        <div className={`card ${styles.loaderContainer}`}>
+        <div className="card mx-auto my-5">
             <ContentLoader
                 speed={1}
                 height={200}
