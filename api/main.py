@@ -37,7 +37,6 @@ app.add_middleware(
 
 class Post(BaseModel):
     name: str
-    short_desc: str
     description: str
 
 
