@@ -68,24 +68,34 @@ async def posts(request: Request, page: Optional[int] = 1, start: Optional[int] 
 async def create_post(request: Request, post: Post):
     data = dict(post)
 
-    if data.get('description') == None:
+    if data.get('description') != None:
         if data.get('description') == '':
             data = {
                 'status': 'failed',
                 'issues': ['Description can\'t be blank'],
                 'problem_fields': ['description']
             }
+            return data
         elif len(data.get('description')) > 5000:
             data = {
                 'status': 'failed',
                 'issues': ['Description can\'t be more than 5000 characters'],
                 'problem_fields': ['description']
             }
-    else:
-        now = datetime.now()
-        data['date'] = now.strftime("%B %d, %Y")
-        data['time'] = now.strftime("%I:%M:%S %p")
+            return data
+    if data.get('name') != None:
+        if len(data.get('name')) > 30:
+            data = {
+                'status': 'failed',
+                'issues': ['Name can\'t be more than 30 characters'],
+                'problem_fields': ['name']
+            }
+            return data
 
-        data = dm.create_post(data)
+    now = datetime.now()
+    data['date'] = now.strftime("%B %d, %Y")
+    data['time'] = now.strftime("%I:%M:%S %p")
+
+    data = dm.create_post(data)
 
     return data
