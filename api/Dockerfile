@@ -1,6 +1,11 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8-alpine3.10
 ENV PYTHONUNBUFFERED 1
 
+RUN apk add tzdata
+RUN cp /usr/share/zoneinfo/Asia/Dhaka /etc/localtime
+RUN echo "Asia/Dhaka" > /etc/timezone
+RUN apk del tzdata
+
 COPY . /app
 WORKDIR /app
 
