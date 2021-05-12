@@ -77,6 +77,7 @@ const Modal = ({ setPosts }) => {
                                     মন খুলে লিখুন
                                     </label>
                                 <textarea className="form-control" id="post"
+                                    maxLength="5000"
                                     value={post}
                                     onChange={handleDesc}
                                     onKeyDown={_ => null}
