@@ -16,10 +16,10 @@ const Post = ({ name, description, date, time }, ref) => {
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting) {
                 const classList = entries[0].target.classList
-                console.log(classList.add('blurred'))
+                classList.add('blurred')
             } else {
                 const classList = entries[0].target.classList
-                console.log(classList.remove('blurred'))
+                classList.remove('blurred')
             }
         })
         if (node) observer.current.observe(node)
