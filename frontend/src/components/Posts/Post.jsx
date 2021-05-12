@@ -4,6 +4,7 @@ const Post = ({ name, description, date, time }, ref) => {
 
     const [expanded, setExpanded] = useState(false)
     const [hasMore, setHasMore] = useState(false)
+    const [isShort, setIsShort] = useState(false)
 
     const handleExpansion = e => {
         console.log(e)
@@ -13,6 +14,8 @@ const Post = ({ name, description, date, time }, ref) => {
     useEffect(() => {
         if (description && description.length > 400)
             setHasMore(true)
+        if (description && description.length <= 100)
+            setIsShort(true)
     }, [description])
 
     return (
@@ -31,7 +34,7 @@ const Post = ({ name, description, date, time }, ref) => {
                         </div>
                     </div>
                 </div>
-                <div className="card__details p-4">
+                <div className={`card__details p-4 ${isShort ? 'short' : ''}`}>
                     {hasMore ? expanded ? description : description.slice(0, 240) + '... ' : description}
                     {expanded ? <br /> : ''}
                     {hasMore ? <button className="btn btn-expand" onClick={handleExpansion}> {expanded ? 'Show Less' : 'Show More'}</button> : ''}
