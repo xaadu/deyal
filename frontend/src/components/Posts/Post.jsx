@@ -44,4 +44,4 @@ const Post = ({ name, description, date, time }, ref) => {
     )
 }
 
-export default React.forwardRef(Post)
+export default React.memo(React.forwardRef(Post))
