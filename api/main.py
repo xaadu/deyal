@@ -68,10 +68,17 @@ async def posts(request: Request, page: Optional[int] = 1, start: Optional[int] 
 async def create_post(request: Request, post: Post):
     data = dict(post)
 
-    now = datetime.now()
-    data['date'] = now.strftime("%B %d, %Y")
-    data['time'] = now.strftime("%I:%M:%S %p")
+    if data.get('description') == None or data.get('description') == '':
+        data = {
+            'status': 'failed',
+            'issues': ['Description can\'t be blank'],
+            'problem_fields': ['description']
+        }
+    else:
+        now = datetime.now()
+        data['date'] = now.strftime("%B %d, %Y")
+        data['time'] = now.strftime("%I:%M:%S %p")
 
-    data = dm.create_post(data)
+        data = dm.create_post(data)
 
     return data
