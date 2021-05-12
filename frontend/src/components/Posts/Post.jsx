@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 
 const Post = ({ name, description, date, time }, ref) => {
 
@@ -11,6 +11,20 @@ const Post = ({ name, description, date, time }, ref) => {
         setExpanded(prevExpanded => !prevExpanded)
     }
 
+    const observer = useRef()
+    const postObserverRef = useCallback(node => {
+        observer.current = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                const classList = entries[0].target.classList
+                console.log(classList.add('blurred'))
+            } else {
+                const classList = entries[0].target.classList
+                console.log(classList.remove('blurred'))
+            }
+        })
+        if (node) observer.current.observe(node)
+    }, [])
+
     useEffect(() => {
         if (description && description.length > 400)
             setHasMore(true)
@@ -20,7 +34,7 @@ const Post = ({ name, description, date, time }, ref) => {
 
     return (
         <div className='my-5 py-3' ref={ref}>
-            <div className="card mx-auto">
+            <div className="card mx-auto" ref={postObserverRef}>
                 <div className="card__info px-4 py-2 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-sm-start">
                     <div className="left">
                         <i className="fal fa-user-secret"></i>
