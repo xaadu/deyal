@@ -11,11 +11,17 @@ const Modal = ({ setPosts }) => {
     const cancel = useRef()
 
     const descInput = useRef()
+    const nameInput = useRef()
 
     const handleDesc = e => {
         if (descInput.current.className === 'form-control is-invalid')
             descInput.current.className = 'form-control'
         setPost(e.target.value)
+    }
+    const handleName = e => {
+        if (nameInput.current.className === 'form-control is-invalid')
+            nameInput.current.className = 'form-control'
+        setName(e.target.value)
     }
 
     const handleForm = e => {
@@ -41,6 +47,8 @@ const Modal = ({ setPosts }) => {
                 error_fields.map(item => {
                     if (item === 'description') {
                         descInput.current.className = 'form-control is-invalid'
+                    } else if (item === 'name') {
+                        nameInput.current.className = 'form-control is-invalid'
                     }
                     return ''
                 })
@@ -70,11 +78,15 @@ const Modal = ({ setPosts }) => {
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">ছদ্মনাম (বাধ্যতামূলক নয়)</label>
                                 <input type="text" className="form-control" id="name"
-                                    value={name} onChange={e => setName(e.target.value)} />
+                                    maxLength="30"
+                                    value={name}
+                                    onChange={handleName}
+                                    ref={nameInput}
+                                />
                             </div>
                             <div>
                                 <label htmlFor="post" className="form-label">
-                                    মন খুলে লিখুন
+                                    মন খুলে লিখুন *
                                     </label>
                                 <textarea className="form-control" id="post"
                                     maxLength="5000"
