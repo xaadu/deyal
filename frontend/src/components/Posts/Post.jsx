@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const Post = ({ name, description }, ref) => {
+const Post = ({ name, description, date, time }, ref) => {
 
     const [expanded, setExpanded] = useState(false)
     const [hasMore, setHasMore] = useState(false)
@@ -27,7 +27,7 @@ const Post = ({ name, description }, ref) => {
                             <h2>{name === '' ? 'Anonymous' : name}</h2>
                         </div>
                         <div className="datetime text-center text-sm-start">
-                            <h4>May 12, 2021</h4>
+                            <h4>{date} || {time}</h4>
                         </div>
                     </div>
                 </div>
