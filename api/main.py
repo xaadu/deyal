@@ -92,23 +92,23 @@ async def create_post(request: Request, post: Post):
         if data.get('description') == '':
             data = {
                 'status': 'failed',
-                'issues': ['Description can\'t be blank'],
-                'problem_fields': ['description']
+                'issue_title': 'Empty Field',
+                'issue_description': 'Description Field can\'t be empty. Write Something you want to post.',
             }
             return data
         elif len(data.get('description')) > 5000:
             data = {
                 'status': 'failed',
-                'issues': ['Description can\'t be more than 5000 characters'],
-                'problem_fields': ['description']
+                'issue_title': 'Limit Exceeded',
+                'issue_description': 'Description can\'t be more than 5000 characters. Write within 5000 character.',
             }
             return data
     if data.get('name') != None:
         if len(data.get('name')) > 30:
             data = {
                 'status': 'failed',
-                'issues': ['Name can\'t be more than 30 characters'],
-                'problem_fields': ['name']
+                'issue_title': 'Limit Exceeded',
+                'issue_description': 'Name can\'t be more than 30 characters. Please write name within 30 characters.',
             }
             return data
 
