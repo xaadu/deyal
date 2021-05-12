@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
+import redis
+
 from typing import Optional
 from pydantic import BaseModel
 
@@ -10,7 +12,10 @@ from helpers import (
     getIP
 )
 from env_vars import (
-    NUM_OF_DATA_PER_PAGE
+    NUM_OF_DATA_PER_PAGE,
+    REDIS_HOST,
+    REDIS_DB,
+    REDIS_PORT
 )
 
 from DatabaseManager import DatabaseManager
@@ -45,6 +50,9 @@ class Post(BaseModel):
 # Create DatabaseManager Object
 dm = DatabaseManager()
 
+# Create Redis Client Object
+redisClient = redis.Redis(REDIS_HOST, REDIS_PORT, REDIS_DB)
+
 
 @app.get('/')
 async def home(request: Request):
@@ -66,6 +74,18 @@ async def posts(request: Request, page: Optional[int] = 1, start: Optional[int] 
 
 @app.post('/posts')
 async def create_post(request: Request, post: Post):
+    client_ip = getIP(request)
+
+    if redisClient.ttl(client_ip) != -2:
+        data = {
+            'status': 'failed',
+            'issue_title': 'Limit Exceeded',
+            'issue_description': 'You can post once in 5 minute! Please wait at least 5 minutes after posting.',
+        }
+        return data
+    else:
+        redisClient.setex(client_ip, 10, 'Posted')
+
     data = dict(post)
 
     if data.get('description') != None:
