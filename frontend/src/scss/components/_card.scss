@@ -8,26 +8,26 @@
     &.blurred {
         backdrop-filter: blur(2px);
         @media only screen and (max-width: 576px) {
-            backdrop-filter: blur(3px);
+            backdrop-filter: none;
         }
         .card__info {
             backdrop-filter: blur(2px);
 
             @media only screen and (max-width: 576px) {
-                backdrop-filter: blur(3px);
+                backdrop-filter: none;
             }
         }
     }
 
     @media only screen and (max-width: 576px) {
-        background: rgba($color: $color-white, $alpha: .5);
+        background: rgba($color: $color-white, $alpha: .7);
     }
 
     &__info {
         background: rgba($color: $color-white, $alpha: .3);
 
         @media only screen and (max-width: 576px) {
-            background: rgba($color: $color-white, $alpha: .4);
+            background: rgba($color: $color-white, $alpha: .6);
         }
 
         .left i {
