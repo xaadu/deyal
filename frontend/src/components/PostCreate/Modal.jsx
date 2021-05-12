@@ -10,10 +10,24 @@ const Modal = ({ setPosts }) => {
     const modal = useRef()
     const cancel = useRef()
 
+    const descInput = useRef()
+
+    const handleDesc = e => {
+        if (descInput.current.className === 'form-control is-invalid')
+            descInput.current.className = 'form-control'
+        setPost(e.target.value)
+    }
+
     const handleForm = e => {
         e.preventDefault()
 
         let description = post
+
+        if (description === '') {
+            descInput.current.className = 'form-control is-invalid'
+            return
+        }
+
 
         axios({
             method: 'POST',
@@ -23,10 +37,21 @@ const Modal = ({ setPosts }) => {
                 description: description,
             }
         }).then(res => {
-            setPosts(oldPosts => [res.data.data, ...oldPosts.slice(0, -1)])
-            cancel.current.click()
-            setName('')
-            setPost('')
+            if (res.data.status === 'failed') {
+                const error_fields = res.data['problem_fields']
+                error_fields.map(item => {
+                    if (item === 'description') {
+                        descInput.current.className = 'form-control is-invalid'
+                    }
+                    return ''
+                })
+            } else {
+                setPosts(oldPosts => [res.data.data, ...oldPosts.slice(0, -1)])
+                cancel.current.click()
+                setName('')
+                setPost('')
+            }
+
         }).catch(e => {
             console.log(e)
         })
@@ -54,8 +79,10 @@ const Modal = ({ setPosts }) => {
                                     </label>
                                 <textarea className="form-control" id="post"
                                     value={post}
-                                    onChange={e => setPost(e.target.value)}
-                                    onKeyDown={_ => null} />
+                                    onChange={handleDesc}
+                                    onKeyDown={_ => null}
+                                    ref={descInput}
+                                />
                             </div>
                         </div>
                         <div className="modal-footer d-flex justify-content-center border-0">

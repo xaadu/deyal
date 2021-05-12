@@ -20,7 +20,7 @@ const Post = ({ name, description, date, time }, ref) => {
             <div className="card mx-auto">
                 <div className="card__info px-4 py-2 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-sm-start">
                     <div className="left">
-                        <i class="fal fa-user-secret"></i>
+                        <i className="fal fa-user-secret"></i>
                     </div>
                     <div className="right px-4">
                         <div className="name text-center text-sm-start">
