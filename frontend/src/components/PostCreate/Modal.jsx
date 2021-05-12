@@ -28,7 +28,6 @@ const Modal = ({ setPosts }) => {
             return
         }
 
-
         axios({
             method: 'POST',
             url: `https://api.xstechisland.tk/deyal/v1/posts`,
