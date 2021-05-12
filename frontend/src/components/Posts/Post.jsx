@@ -19,7 +19,7 @@ const Post = ({ name, description, date, time }, ref) => {
     }, [description])
 
     return (
-        <div className='my-5' ref={ref}>
+        <div className='my-5 py-3' ref={ref}>
             <div className="card mx-auto">
                 <div className="card__info px-4 py-2 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-sm-start">
                     <div className="left">
