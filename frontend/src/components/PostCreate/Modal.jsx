@@ -73,8 +73,9 @@ const Modal = ({ setPosts }) => {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         </button>
                     </div>
-                    <form onSubmit={handleForm}>
-                        <div className="modal-body">
+
+                    <div className="modal-body">
+                        <form onSubmit={handleForm}>
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">ছদ্মনাম (বাধ্যতামূলক নয়)</label>
                                 <input type="text" className="form-control" id="name"
@@ -96,17 +97,19 @@ const Modal = ({ setPosts }) => {
                                     ref={descInput}
                                 />
                             </div>
-                        </div>
-                        <div className="modal-footer d-flex justify-content-center border-0">
-                            <button type="submit" className="btn btn-outline-primary mx-2">
-                                পোস্ট করুন
+                        </form>
+                    </div>
+
+                    <div className="modal-footer d-flex justify-content-center border-0">
+                        <button type="submit" className="btn btn-outline-primary mx-2">
+                            পোস্ট করুন
                             </button>
-                            <button type="button" className="btn btn-outline-danger mx-2" data-bs-dismiss="modal"
-                                ref={cancel}>
-                                বাতিল করুন
+                        <button type="button" className="btn btn-outline-danger mx-2" data-bs-dismiss="modal"
+                            ref={cancel}>
+                            বাতিল করুন
                         </button>
-                        </div>
-                    </form>
+                    </div>
+
                 </div>
             </div>
         </div>
