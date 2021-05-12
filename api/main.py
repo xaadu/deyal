@@ -4,6 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 from pydantic import BaseModel
 
+from datetime import datetime
+
 from helpers import (
     getIP
 )
@@ -64,5 +66,12 @@ async def posts(request: Request, page: Optional[int] = 1, start: Optional[int] 
 
 @app.post('/posts')
 async def create_post(request: Request, post: Post):
-    data = dm.create_post(dict(post))
+    data = dict(post)
+
+    now = datetime.now()
+    data['date'] = now.strftime("%B %d, %Y")
+    data['time'] = now.strftime("%I:%M:%S %p")
+
+    data = dm.create_post(data)
+
     return data
