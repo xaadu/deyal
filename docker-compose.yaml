@@ -9,6 +9,8 @@ services:
             - ./api:/app
         env_file:
             - ./api/.env
+        networks:
+            - root_services
     frontend:
         build: 
             context: ./frontend
@@ -18,3 +20,7 @@ services:
             - 9002:9002
         volumes:
             - ./frontend:/code
+
+networks:
+    root_services:
+      external: true
