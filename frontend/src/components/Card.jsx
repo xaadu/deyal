@@ -19,7 +19,7 @@ const Post = ({ children }) => {
 
 
     return (
-        <div className="card animate__animated animate__faster mx-auto" ref={postObserverRef}>
+        <div className="card animate__animated animate__fast mx-auto" ref={postObserverRef}>
             {children}
         </div>
     )
