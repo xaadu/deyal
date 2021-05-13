@@ -1,5 +1,8 @@
-import axios from 'axios'
 import { useState, useRef } from 'react'
+
+import axios from 'axios'
+
+import { store } from 'react-notifications-component'
 
 
 const Modal = ({ setPosts }) => {
@@ -43,18 +46,37 @@ const Modal = ({ setPosts }) => {
             }
         }).then(res => {
             if (res.data.status === 'failed') {
-                const error_fields = res.data['problem_fields']
-                error_fields.map(item => {
-                    if (item === 'description') {
-                        descInput.current.className = 'form-control is-invalid'
-                    } else if (item === 'name') {
-                        nameInput.current.className = 'form-control is-invalid'
+                const { issue_title, issue_description } = res.data
+                cancel.current.click()
+                store.addNotification({
+                    title: issue_title,
+                    message: issue_description,
+                    type: "danger",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__zoomInDown"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 3000,
+                        onScreen: true
                     }
-                    return ''
                 })
             } else {
                 setPosts(oldPosts => [res.data.data, ...oldPosts.slice(0, -1)])
                 cancel.current.click()
+                store.addNotification({
+                    title: "Success",
+                    message: "You have successfully posted. Post minimum after 5 minutes.",
+                    type: "success",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animate__animated", "animate__zoomInDown"],
+                    animationOut: ["animate__animated", "animate__fadeOut"],
+                    dismiss: {
+                        duration: 3000,
+                        onScreen: true
+                    }
+                })
                 setName('')
                 setPost('')
             }
