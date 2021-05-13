@@ -56,7 +56,7 @@ const Posts = () => {
                 if (posts.length === i + 1)
                     return <Post ref={lastPostObserverRef}
                         key={post['_id']}
-                        name={post.title}
+                        name={post.name}
                         description={post.description}
                         date={post.date}
                         time={post.time}
