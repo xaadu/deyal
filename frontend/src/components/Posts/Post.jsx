@@ -17,6 +17,7 @@ const Post = ({ name, description, date, time }, ref) => {
             if (entries[0].isIntersecting) {
                 const classList = entries[0].target.classList
                 classList.add('blurred')
+                classList.add('animate__fadeInUp')
             } else {
                 const classList = entries[0].target.classList
                 classList.remove('blurred')
@@ -34,7 +35,7 @@ const Post = ({ name, description, date, time }, ref) => {
 
     return (
         <div className='my-5 py-3' ref={ref}>
-            <div className="card mx-auto" ref={postObserverRef}>
+            <div className="card animate__animated animate__faster mx-auto" ref={postObserverRef}>
                 <div className="card__info px-4 py-2 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-sm-start">
                     <div className="left">
                         <i className="fal fa-user-secret"></i>

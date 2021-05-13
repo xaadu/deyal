@@ -2,7 +2,7 @@ import ContentLoader from 'react-content-loader'
 
 const Loading = () => {
     return (
-        <div className="card mx-auto my-5">
+        <div className="card animate__animated animate__faster animate__fadeInUp mx-auto my-5">
             <ContentLoader
                 speed={1}
                 height={200}
