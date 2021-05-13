@@ -75,7 +75,7 @@ const Modal = ({ setPosts }) => {
                     </div>
 
                     <div className="modal-body">
-                        <form onSubmit={handleForm}>
+                        <form id="post-create" onSubmit={handleForm}>
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">ছদ্মনাম (বাধ্যতামূলক নয়)</label>
                                 <input type="text" className="form-control" id="name"
@@ -101,11 +101,18 @@ const Modal = ({ setPosts }) => {
                     </div>
 
                     <div className="modal-footer d-flex justify-content-center border-0">
-                        <button type="submit" className="btn btn-outline-primary mx-2">
+                        <button type="submit"
+                            className="btn btn-outline-primary mx-2"
+                            form="post-create"
+                        >
                             পোস্ট করুন
                             </button>
-                        <button type="button" className="btn btn-outline-danger mx-2" data-bs-dismiss="modal"
-                            ref={cancel}>
+                        <button type="button"
+                            className="btn btn-outline-danger mx-2"
+                            data-bs-dismiss="modal"
+                            ref={cancel}
+                            form="post-create"
+                        >
                             বাতিল করুন
                         </button>
                     </div>
